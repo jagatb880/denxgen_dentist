@@ -1,0 +1,77 @@
+<ion-content>
+  <div style="padding-left: 10vw;padding-right: 10vw; height: 200px;" *ngIf="loginType == 1">
+    <div style="color: #399CDE;font-size: 18px;
+    font-weight: 600;padding-top: 6vh;">Create your account</div>
+    <div style="border-bottom: 2px solid #399CDE; width: 30px;padding-top: 3vh;"></div>
+    <div style="padding-top: 2vh;font-size: 15px;font-weight: 500;line-height: 20px;">Create your account for the
+      <br>best experience with DenXGen </div>
+  </div>
+  <div style="padding-left: 10vw;padding-right: 10vw; height: 200px;" *ngIf="loginType == 0">
+    <div style="color: #399CDE;font-size: 18px;
+    font-weight: 600;padding-top: 6vh;">Welcome Back</div>
+    <div style="border-bottom: 2px solid #399CDE; width: 30px;padding-top: 3vh;"></div>
+    <div style="padding-top: 2vh;font-size: 15px;font-weight: 500;line-height: 20px;">We are glad you are back </div>
+  </div>
+  <ion-segment [(ngModel)]="loginType" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="1">
+      <ion-label style="text-transform: capitalize;">Sign Up</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="0">
+      <ion-label style="text-transform: capitalize;">Log In</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="loginType == 1" style="padding-right: 12vw;padding-left: 12vw;margin-top: 6vh;" [formGroup]="signupForm">
+    <ion-item>
+      <ion-input name="name" type="text" placeholder="Your Name" formControlName="dnstName"
+        style="text-transform: capitalize;"></ion-input><span>*</span>
+    </ion-item>
+    <ion-item>
+      <ion-input type="email" placeholder="Your Email ID" formControlName="dnstEmail"></ion-input>
+      <span>*</span>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" maxlength="10" placeholder="Your Phone Number" formControlName="dnstPhoneNumber">
+      </ion-input>
+      <span>*</span>
+    </ion-item>
+    <ion-item>
+      <ion-input name="name" type="text" placeholder="Registration Number" formControlName="dnstRegistrationNumber">
+      </ion-input><span>*</span>
+    </ion-item>
+    <ion-item>
+      <ion-input name="name" type="text" placeholder="Clinic Name" formControlName="clinicName"
+        style="text-transform: capitalize;"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea name="name" type="text" placeholder="Clinic Address" formControlName="clinicAddress"
+        style="text-transform: capitalize;"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" maxlength="12" placeholder="Clinic Phone Number" formControlName="clinicPhoneNumber">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" maxlength="2" placeholder="Year Of Experience" formControlName="yearOfExp"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" maxlength="2" placeholder="Numbers of Chairs Available" formControlName="numberOfChair">
+      </ion-input>
+    </ion-item>
+    <ion-radio-group placeholder="dnstGender">
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label>Male</ion-label>
+            <ion-radio slot="start" value=1></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label>Female</ion-label>
+            <ion-radio slot="start" value=0></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "denxgen",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
